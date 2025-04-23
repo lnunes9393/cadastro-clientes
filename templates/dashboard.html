@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Alface</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h2>Dashboard</h2>
+<p>Total de Vendas: R$ {{ vendas_totais }}</p>
+<p>Total de Sacolas: {{ sacolas_totais }}</p>
+<p>Lucro Total: R$ {{ lucro_total }}</p>
+<canvas id="lucroChart"></canvas>
+<canvas id="precoChart"></canvas>
+<script>
+const lucroChart = new Chart(document.getElementById('lucroChart'), {
+    type: 'bar',
+    data: {
+        labels: {{ meses|tojson }},
+        datasets: [{ label: 'Lucro (R$)', data: {{ lucros|tojson }}, backgroundColor: 'green' }]
+    }
+});
+const precoChart = new Chart(document.getElementById('precoChart'), {
+    type: 'line',
+    data: {
+        labels: {{ meses|tojson }},
+        datasets: [{ label: 'Valor por Sacola (R$)', data: {{ precos|tojson }}, borderColor: 'orange' }]
+    }
+});
+</script>
+</body>
+</html>

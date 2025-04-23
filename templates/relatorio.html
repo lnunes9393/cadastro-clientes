@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><title>Relatório</title></head>
+<body>
+<h2>Faturamento</h2>
+<table border="1">
+<tr><th>Mês</th><th>Vendas</th><th>Sacolas</th><th>Gastos</th><th>Lucro</th><th>Valor/Sacola</th></tr>
+{% for row in dados %}
+<tr>
+<td>{{ row[1] }}</td><td>{{ row[2] }}</td><td>{{ row[3] }}</td><td>{{ row[4] }}</td><td>{{ row[5] }}</td><td>{{ row[6] }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
