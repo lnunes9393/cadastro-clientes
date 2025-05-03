@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import os
 
 app = Flask(__name__)
@@ -7,7 +7,14 @@ app = Flask(__name__)
 def home():
     return 'Hello World'
 
+@app.route('/relatorio')
+def relatorio():
+    return render_template("relatorio.html")
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template("dashboard.html")
+
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get("PORT", 10000))  # Render define essa variável automaticamente
+    port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
